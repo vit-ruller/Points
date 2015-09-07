@@ -1,8 +1,8 @@
-/* Points - v0.1.1 - 2013-07-11
+/* Points - v0.1.1 - 2015-09-07
  * Another Pointer Events polyfill
 
  * http://rich-harris.github.io/Points
- * Copyright (c) 2013 Rich Harris; Released under the MIT License */
+ * Copyright (c) 2015 Rich Harris; Released under the MIT License */
 
 
 
@@ -46,7 +46,7 @@
 		if ( document.createEvent ) {
 			createUIEvent = function ( type, bubbles ) {
 				var pointerEvent = document.createEvent( 'UIEvents' );
-				pointerEvent.initUIEvent( type, bubbles, true, window );
+				pointerEvent.initUIEvent( type, bubbles, true, window, 1 );
 
 				return pointerEvent;
 			};

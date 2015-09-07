@@ -38,7 +38,7 @@
 		if ( document.createEvent ) {
 			createUIEvent = function ( type, bubbles ) {
 				var pointerEvent = document.createEvent( 'UIEvents' );
-				pointerEvent.initUIEvent( type, bubbles, true, window );
+				pointerEvent.initUIEvent( type, bubbles, true, window, 1 );
 
 				return pointerEvent;
 			};
