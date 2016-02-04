@@ -101,9 +101,10 @@
 					var unprefixedEvent = createEvent( unprefixed, originalEvent, originalEvent, false );
 					originalEvent.target.dispatchEvent( unprefixedEvent );
 
-					if ( !originalEvent.target.contains( originalEvent.relatedTarget ) ) {
-						unprefixedEvent = createEvent( ( unprefixed === 'pointerover' ? 'pointerenter' : 'pointerleave' ), originalEvent, originalEvent, true );
-						originalEvent.target.dispatchEvent( unprefixedEvent );
+					//check because svg elemnt in ie10 dont have property contains
+					if (originalEvent.target.contains && !originalEvent.target.contains( originalEvent.relatedTarget ) ) {
+							unprefixedEvent = createEvent( ( unprefixed === 'pointerover' ? 'pointerenter' : 'pointerleave' ), originalEvent, originalEvent, true );
+							originalEvent.target.dispatchEvent( unprefixedEvent );
 					}
 				}, true );
 			}
